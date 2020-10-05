@@ -12,7 +12,5 @@ services:
     image: grafana/grafana:latest
     container_name: monitoring_grafana
     restart: unless-stopped
-    links:
-      - prometheus:prometheus
     volumes:
       - ./data/grafana:/var/lib/grafana
