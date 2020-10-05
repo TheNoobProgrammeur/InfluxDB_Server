@@ -9,11 +9,10 @@ services:
     labels:
       - "traefik.enable=false"
   grafana:
-    hostname: grafana
-    container_name: grafana
-    image: grafana/grafana
-    expose:
-      - 3000
+    image: grafana/grafana:latest
+    container_name: monitoring_grafana
+    restart: unless-stopped
+    links:
+      - prometheus:prometheus
     volumes:
       - ./data/grafana:/var/lib/grafana
-    restart: unless-stopped
