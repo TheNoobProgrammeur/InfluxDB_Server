@@ -5,12 +5,25 @@ services:
     hostname: influxdb
     container_name: influxdb
     volumes:
-      - ./data/influxdb:/var/lib/influxdb
+      - ./influxdb:/var/lib/influxdb
     labels:
       - "traefik.enable=false"
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+    env_file:
+      - 'env.influxdb'
   grafana:
     image: grafana/grafana:latest
     container_name: monitoring_grafana
     restart: unless-stopped
     volumes:
-      - ./data/grafana:/var/lib/grafana
+      - ./grafana:/var/lib/grafana
+    env_file:
+      - 'env.grafana'
+    user: "0"
+    links:
+      - influxdb
+    ports:
+      - 3000:3000
