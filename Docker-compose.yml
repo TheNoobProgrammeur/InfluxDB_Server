@@ -1,0 +1,19 @@
+version: '2'
+  services:
+    influxdb:
+      image: influxdb
+      hostname: influxdb
+      container_name: influxdb
+      volumes:
+        - /data/influxdb:/var/lib/influxdb
+      labels:
+        - "traefik.enable=false"
+  
+    grafana:
+      hostname: grafana
+      container_name: grafana
+      image: grafana/grafana
+      expose:
+        - 3000
+      volumes:
+        - /data/grafana:/var/lib/grafana
