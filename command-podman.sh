@@ -25,6 +25,6 @@ fi
 
 
 
-podman run -dt --env-file='.grafana.env'  --name=grafana --restart=always -v ./grafana:/var/lib/grafana --pod appweb grafana/grafana:latest
+podman run -dt --env-file='.grafana.env'  --name=grafana --restart=always  --pod appweb grafana/grafana:latest
 
 podman run -dt --env-file='.influxdb.env'  --name=influxdb --restart=always  -v ./influxdb:/var/lib/influxdb --pod appbd influxdb
