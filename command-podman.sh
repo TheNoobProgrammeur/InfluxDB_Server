@@ -1,7 +1,7 @@
 #!/bin/sh
 
 podman pod exists apps
-if [ $0 -eq 1 ];
+if [ $? -eq 1 ]
 then
     podman pod create --name apps -p 3000:3000 -p 8086:8086
 fi    
