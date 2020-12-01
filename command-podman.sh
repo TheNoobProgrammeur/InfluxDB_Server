@@ -3,11 +3,11 @@
 FILE_INFLUX=./influxdb
 FILE_GRAFANA=./grafana
 
-if [ ! -f "$FILE_INFLUX" ];then
+if [ ! -d "$FILE_INFLUX" ];then
     mkdir  "$FILE_INFLUX"
 fi   
 
-if [ ! -f "$FILE_GRAFANA" ];then
+if [ ! -d "$FILE_GRAFANA" ];then
     mkdir "$FILE_GRAFANA"
 fi   
 
