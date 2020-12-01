@@ -4,7 +4,7 @@
 podman pod exists appweb
 if [ $? -eq 1 ]
 then
-    podman pod create --name appweb -p 8086:8086 -p 3000:3000   --hostname '0.0.0.0'
+    podman pod create --name appweb -p 8086:8086 -p 3000:3000 -p 8083:8083 -p 8090:8090  --hostname '0.0.0.0'
 fi
 
 
