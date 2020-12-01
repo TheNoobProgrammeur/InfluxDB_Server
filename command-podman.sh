@@ -20,7 +20,7 @@ fi
 podman pod exists appbd
 if [ $? -eq 1 ]
 then
-    podman pod create --name appbd  -p 8086:8086 --hostname '0.0.0.0'
+    podman pod create --name appbd  -p 8086:8086/udp --hostname '0.0.0.0'
 fi
 
 
