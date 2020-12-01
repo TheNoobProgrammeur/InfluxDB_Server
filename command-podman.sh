@@ -14,7 +14,7 @@ fi
 podman pod exists apps
 if [ $? -eq 1 ]
 then
-    podman pod create --name apps -p 3000:3000 -p 8086:8086
+    podman pod create --name apps -p 3000:3000 -p 8086:8086 --add-host=0.0.0.0
 fi
 
 podman run -dt --env-file='.grafana.env'  --name=grafana --restart=always -v ./grafana:/var/lib/grafana --pod apps grafana/grafana:latest
