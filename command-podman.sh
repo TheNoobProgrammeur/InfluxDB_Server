@@ -8,8 +8,6 @@ then
 fi
 
 
-
-
 podman run -dt --env-file='.grafana.env'  --name=grafana --restart=always  --pod appweb grafana/grafana:latest
 
-podman run -dt --env-file='.influxdb.env'  --name=influxdb --restart=always  -v ./influxdb:/var/lib/influxdb --pod appweb influxdb
+podman run -dt --env-file='.influxdb.env'  --name=influxdb --restart=always  --pod appweb influxdb
